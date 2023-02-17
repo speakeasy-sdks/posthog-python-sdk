@@ -36,7 +36,7 @@ class PatchedSubscriptionInput:
     """
     
     bysetpos: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('bysetpos') }, 'form': { 'field_name': 'bysetpos' }, 'multipart_form': { 'field_name': 'bysetpos' }})
-    byweekday: Optional[list[PatchedSubscriptionByweekdayEnum]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('byweekday') }, 'form': { 'field_name': 'byweekday', 'json': True }, 'multipart_form': { 'field_name': 'byweekday', 'json': True }})
+    byweekday: Optional[list[PatchedSubscriptionByweekdayEnum]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('byweekday') }, 'form': { 'field_name': 'byweekday' }, 'multipart_form': { 'field_name': 'byweekday' }})
     count: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('count') }, 'form': { 'field_name': 'count' }, 'multipart_form': { 'field_name': 'count' }})
     dashboard: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('dashboard') }, 'form': { 'field_name': 'dashboard' }, 'multipart_form': { 'field_name': 'dashboard' }})
     deleted: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('deleted') }, 'form': { 'field_name': 'deleted' }, 'multipart_form': { 'field_name': 'deleted' }})

@@ -23,7 +23,7 @@ class FeatureFlagInput:
     name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('name') }, 'form': { 'field_name': 'name' }, 'multipart_form': { 'field_name': 'name' }})
     performed_rollback: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('performed_rollback') }, 'form': { 'field_name': 'performed_rollback' }, 'multipart_form': { 'field_name': 'performed_rollback' }})
     rollback_conditions: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('rollback_conditions') }, 'form': { 'field_name': 'rollback_conditions', 'json': True }, 'multipart_form': { 'field_name': 'rollback_conditions', 'json': True }})
-    tags: Optional[list[Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('tags') }, 'form': { 'field_name': 'tags', 'json': True }, 'multipart_form': { 'field_name': 'tags', 'json': True }})
+    tags: Optional[list[Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('tags') }, 'form': { 'field_name': 'tags' }, 'multipart_form': { 'field_name': 'tags' }})
     
 
 @dataclass_json
