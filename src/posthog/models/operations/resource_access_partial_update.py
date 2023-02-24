@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import organizationresourceaccess as shared_organizationresourceaccess
 from ..shared import patchedorganizationresourceaccess as shared_patchedorganizationresourceaccess

@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import team as shared_team
 from typing import Optional

@@ -1,6 +1,7 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import property as shared_property
-from dataclasses_json import dataclass_json
+from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from posthog import utils
 from typing import Optional
@@ -29,10 +30,10 @@ class FilterEventMathEnum(str, Enum):
     P99_COUNT_PER_ACTOR = "p99_count_per_actor"
 
 
-@dataclass_json
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class FilterEvent:
     id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('id') }})
-    math: Optional[FilterEventMathEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('math') }})
-    properties: Optional[list[shared_property.Property]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('properties') }})
+    math: Optional[FilterEventMathEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('math'), 'exclude': lambda f: f is None }})
+    properties: Optional[list[shared_property.Property]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('properties'), 'exclude': lambda f: f is None }})
     

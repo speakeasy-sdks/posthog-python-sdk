@@ -50,14 +50,14 @@ class Actions:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/actions/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.ActionsCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -125,14 +125,14 @@ class Actions:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/actions/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("PATCH", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("PATCH", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.ActionsPartialUpdateResponse(status_code=r.status_code, content_type=content_type)
@@ -201,14 +201,14 @@ class Actions:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/actions/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("PUT", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("PUT", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.ActionsUpdateResponse(status_code=r.status_code, content_type=content_type)

@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedperformanceeventlist as shared_paginatedperformanceeventlist
 from typing import Optional

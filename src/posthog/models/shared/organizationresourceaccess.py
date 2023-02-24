@@ -1,6 +1,7 @@
+from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from dataclasses_json import dataclass_json
+from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from enum import Enum
 from marshmallow import fields
@@ -17,14 +18,14 @@ class OrganizationResourceAccessResourceEnum(str, Enum):
     DASHBOARDS = "dashboards"
 
 
-@dataclass_json
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class OrganizationResourceAccessInput:
     resource: OrganizationResourceAccessResourceEnum = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('resource') }, 'form': { 'field_name': 'resource' }, 'multipart_form': { 'field_name': 'resource' }})
-    access_level: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_level') }, 'form': { 'field_name': 'access_level' }, 'multipart_form': { 'field_name': 'access_level' }})
+    access_level: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_level'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'access_level' }, 'multipart_form': { 'field_name': 'access_level' }})
     
 
-@dataclass_json
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class OrganizationResourceAccess:
     created_at: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('created_at'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse, 'mm_field': fields.DateTime(format='iso') }})
@@ -33,5 +34,5 @@ class OrganizationResourceAccess:
     organization: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('organization') }})
     resource: OrganizationResourceAccessResourceEnum = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('resource') }})
     updated_at: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('updated_at'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse, 'mm_field': fields.DateTime(format='iso') }})
-    access_level: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_level') }})
+    access_level: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_level'), 'exclude': lambda f: f is None }})
     

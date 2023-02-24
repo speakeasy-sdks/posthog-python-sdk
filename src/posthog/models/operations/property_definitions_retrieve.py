@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import propertydefinition as shared_propertydefinition
 from typing import Optional

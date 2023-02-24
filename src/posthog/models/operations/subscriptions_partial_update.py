@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import patchedsubscription as shared_patchedsubscription
 from ..shared import subscription as shared_subscription

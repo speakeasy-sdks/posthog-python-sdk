@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import patchedsessionrecordingplaylist as shared_patchedsessionrecordingplaylist
 from ..shared import sessionrecordingplaylist as shared_sessionrecordingplaylist

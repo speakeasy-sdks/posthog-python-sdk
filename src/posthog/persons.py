@@ -110,14 +110,14 @@ class Persons:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/persons/{id}/delete_property/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.PersonsDeletePropertyCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -164,14 +164,14 @@ class Persons:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/persons/funnel/correlation/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.PersonsFunnelCorrelationCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -222,14 +222,14 @@ class Persons:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/persons/funnel/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.PersonsFunnelCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -307,14 +307,14 @@ class Persons:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/persons/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("PATCH", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("PATCH", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.PersonsPartialUpdateResponse(status_code=r.status_code, content_type=content_type)
@@ -338,14 +338,14 @@ class Persons:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/persons/path/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.PersonsPathCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -504,14 +504,14 @@ class Persons:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/persons/{id}/split/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.PersonsSplitCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -591,14 +591,14 @@ class Persons:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/persons/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("PUT", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("PUT", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.PersonsUpdateResponse(status_code=r.status_code, content_type=content_type)
@@ -622,14 +622,14 @@ class Persons:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/persons/{id}/update_property/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.PersonsUpdatePropertyCreateResponse(status_code=r.status_code, content_type=content_type)

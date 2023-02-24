@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedsubscriptionlist as shared_paginatedsubscriptionlist
 from typing import Optional

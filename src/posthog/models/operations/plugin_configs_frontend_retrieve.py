@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import pluginconfig as shared_pluginconfig
 from typing import Optional

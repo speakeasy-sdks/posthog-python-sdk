@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import activitylog as shared_activitylog
 from typing import Optional

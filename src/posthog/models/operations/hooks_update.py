@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import hook as shared_hook
 from typing import Optional

@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedrolemembershiplist as shared_paginatedrolemembershiplist
 from typing import Optional

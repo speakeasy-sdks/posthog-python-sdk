@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import organizationinvite as shared_organizationinvite
 from typing import Optional

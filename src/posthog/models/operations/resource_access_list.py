@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedorganizationresourceaccesslist as shared_paginatedorganizationresourceaccesslist
 from typing import Optional

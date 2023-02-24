@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedrolelist as shared_paginatedrolelist
 from typing import Optional

@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedexperimentlist as shared_paginatedexperimentlist
 from typing import Optional

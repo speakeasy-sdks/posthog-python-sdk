@@ -1,7 +1,8 @@
+from __future__ import annotations
 import dataclasses
 import dateutil.parser
 from ..shared import trendresult as shared_trendresult
-from dataclasses_json import dataclass_json
+from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from enum import Enum
 from marshmallow import fields
@@ -450,11 +451,11 @@ class TrendResultsTimezoneEnum(str, Enum):
     UTC = "UTC"
 
 
-@dataclass_json
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class TrendResults:
     is_cached: bool = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('is_cached') }})
     last_refresh: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('last_refresh'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse, 'mm_field': fields.DateTime(format='iso') }})
     result: list[shared_trendresult.TrendResult] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('result') }})
-    timezone: Optional[TrendResultsTimezoneEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('timezone') }})
+    timezone: Optional[TrendResultsTimezoneEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('timezone'), 'exclude': lambda f: f is None }})
     

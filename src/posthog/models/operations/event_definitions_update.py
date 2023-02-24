@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import eventdefinition as shared_eventdefinition
 from typing import Optional

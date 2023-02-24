@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedtaggeditemlist as shared_paginatedtaggeditemlist
 from typing import Optional

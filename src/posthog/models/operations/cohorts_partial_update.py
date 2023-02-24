@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import cohort as shared_cohort
 from ..shared import patchedcohort as shared_patchedcohort

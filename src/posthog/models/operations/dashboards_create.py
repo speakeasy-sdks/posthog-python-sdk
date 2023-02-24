@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import dashboard as shared_dashboard
 from typing import Optional

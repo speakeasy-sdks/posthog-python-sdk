@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import cohort as shared_cohort
 from typing import Optional

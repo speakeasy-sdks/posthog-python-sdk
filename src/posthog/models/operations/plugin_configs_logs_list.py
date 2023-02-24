@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedpluginlogentrylist as shared_paginatedpluginlogentrylist
 from typing import Optional
