@@ -83,15 +83,15 @@ class FeatureFlags:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/feature_flags/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
-        if data is None and json is None:
+        if data is None and form is None:
            raise Exception('request body is required')
         
         client = self._client
         
-        r = client.request("POST", url, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.FeatureFlagsCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -242,13 +242,13 @@ class FeatureFlags:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/feature_flags/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         
         client = self._client
         
-        r = client.request("PATCH", url, data=data, json=json, files=files, headers=headers)
+        r = client.request("PATCH", url, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.FeatureFlagsPartialUpdateResponse(status_code=r.status_code, content_type=content_type)
@@ -293,15 +293,15 @@ class FeatureFlags:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/feature_flags/{parent_lookup_feature_flag_id}/role_access/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
-        if data is None and json is None:
+        if data is None and form is None:
            raise Exception('request body is required')
         
         client = self._client
         
-        r = client.request("POST", url, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.FeatureFlagsRoleAccessCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -387,15 +387,15 @@ class FeatureFlags:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/feature_flags/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
-        if data is None and json is None:
+        if data is None and form is None:
            raise Exception('request body is required')
         
         client = self._client
         
-        r = client.request("PUT", url, data=data, json=json, files=files, headers=headers)
+        r = client.request("PUT", url, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.FeatureFlagsUpdateResponse(status_code=r.status_code, content_type=content_type)
@@ -419,15 +419,15 @@ class FeatureFlags:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/feature_flags/user_blast_radius/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
-        if data is None and json is None:
+        if data is None and form is None:
            raise Exception('request body is required')
         
         client = self._client
         
-        r = client.request("POST", url, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.FeatureFlagsUserBlastRadiusCreateResponse(status_code=r.status_code, content_type=content_type)

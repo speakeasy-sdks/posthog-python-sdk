@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import grouptype as shared_grouptype
 from ..shared import patchedgrouptype as shared_patchedgrouptype

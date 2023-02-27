@@ -41,6 +41,11 @@ src/posthog/trend.py
 src/posthog/uploaded_media.py
 src/posthog/sdk.py
 setup.py
+src/posthog/__init__.py
+src/posthog/models/__init__.py
+src/posthog/utils/__init__.py
+src/posthog/utils/retries.py
+src/posthog/utils/utils.py
 src/posthog/models/operations/actions_count_retrieve.py
 src/posthog/models/operations/actions_create.py
 src/posthog/models/operations/actions_destroy.py

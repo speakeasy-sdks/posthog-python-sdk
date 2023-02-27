@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedsessionrecordingplaylistlist as shared_paginatedsessionrecordingplaylistlist
 from typing import Optional

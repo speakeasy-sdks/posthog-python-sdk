@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import clickhouseevent as shared_clickhouseevent
 from enum import Enum

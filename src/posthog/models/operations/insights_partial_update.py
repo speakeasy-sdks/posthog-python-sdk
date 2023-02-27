@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import insight as shared_insight
 from ..shared import patchedinsight as shared_patchedinsight

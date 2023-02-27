@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import trend as shared_trend
 from ..shared import trendresults as shared_trendresults

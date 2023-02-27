@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedintegrationlist as shared_paginatedintegrationlist
 from typing import Optional

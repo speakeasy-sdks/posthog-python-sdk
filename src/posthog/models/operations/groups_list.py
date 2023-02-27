@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedgrouplist as shared_paginatedgrouplist
 from typing import Optional

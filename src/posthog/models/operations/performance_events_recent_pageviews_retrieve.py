@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import performanceevent as shared_performanceevent
 from typing import Optional

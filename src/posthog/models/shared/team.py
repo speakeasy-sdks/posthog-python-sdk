@@ -1,6 +1,7 @@
+from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from dataclasses_json import dataclass_json
+from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from enum import Enum
 from marshmallow import fields
@@ -449,7 +450,7 @@ class TeamTimezoneEnum(str, Enum):
     UTC = "UTC"
 
 
-@dataclass_json
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class Team:
     api_token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('api_token') }})
@@ -463,51 +464,51 @@ class Team:
     person_on_events_querying_enabled: bool = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('person_on_events_querying_enabled') }})
     updated_at: datetime = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('updated_at'), 'encoder': utils.datetimeisoformat(False), 'decoder': dateutil.parser.isoparse, 'mm_field': fields.DateTime(format='iso') }})
     uuid: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('uuid') }})
-    access_control: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_control') }})
-    anonymize_ips: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('anonymize_ips') }})
-    app_urls: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('app_urls') }})
-    capture_console_log_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('capture_console_log_opt_in') }})
-    capture_performance_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('capture_performance_opt_in') }})
-    completed_snippet_onboarding: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('completed_snippet_onboarding') }})
-    correlation_config: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('correlation_config') }})
-    data_attributes: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('data_attributes') }})
-    inject_web_apps: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('inject_web_apps') }})
-    is_demo: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('is_demo') }})
-    live_events_columns: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('live_events_columns') }})
-    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('name') }})
-    path_cleaning_filters: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('path_cleaning_filters') }})
-    person_display_name_properties: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('person_display_name_properties') }})
-    primary_dashboard: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('primary_dashboard') }})
-    recording_domains: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('recording_domains') }})
-    session_recording_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('session_recording_opt_in') }})
-    slack_incoming_webhook: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('slack_incoming_webhook') }})
-    test_account_filters: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('test_account_filters') }})
-    test_account_filters_default_checked: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('test_account_filters_default_checked') }})
-    timezone: Optional[TeamTimezoneEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('timezone') }})
+    access_control: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_control'), 'exclude': lambda f: f is None }})
+    anonymize_ips: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('anonymize_ips'), 'exclude': lambda f: f is None }})
+    app_urls: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('app_urls'), 'exclude': lambda f: f is None }})
+    capture_console_log_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('capture_console_log_opt_in'), 'exclude': lambda f: f is None }})
+    capture_performance_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('capture_performance_opt_in'), 'exclude': lambda f: f is None }})
+    completed_snippet_onboarding: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('completed_snippet_onboarding'), 'exclude': lambda f: f is None }})
+    correlation_config: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('correlation_config'), 'exclude': lambda f: f is None }})
+    data_attributes: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('data_attributes'), 'exclude': lambda f: f is None }})
+    inject_web_apps: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('inject_web_apps'), 'exclude': lambda f: f is None }})
+    is_demo: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('is_demo'), 'exclude': lambda f: f is None }})
+    live_events_columns: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('live_events_columns'), 'exclude': lambda f: f is None }})
+    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('name'), 'exclude': lambda f: f is None }})
+    path_cleaning_filters: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('path_cleaning_filters'), 'exclude': lambda f: f is None }})
+    person_display_name_properties: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('person_display_name_properties'), 'exclude': lambda f: f is None }})
+    primary_dashboard: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('primary_dashboard'), 'exclude': lambda f: f is None }})
+    recording_domains: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('recording_domains'), 'exclude': lambda f: f is None }})
+    session_recording_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('session_recording_opt_in'), 'exclude': lambda f: f is None }})
+    slack_incoming_webhook: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('slack_incoming_webhook'), 'exclude': lambda f: f is None }})
+    test_account_filters: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('test_account_filters'), 'exclude': lambda f: f is None }})
+    test_account_filters_default_checked: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('test_account_filters_default_checked'), 'exclude': lambda f: f is None }})
+    timezone: Optional[TeamTimezoneEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('timezone'), 'exclude': lambda f: f is None }})
     
 
-@dataclass_json
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class TeamInput:
-    access_control: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_control') }, 'form': { 'field_name': 'access_control' }, 'multipart_form': { 'field_name': 'access_control' }})
-    anonymize_ips: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('anonymize_ips') }, 'form': { 'field_name': 'anonymize_ips' }, 'multipart_form': { 'field_name': 'anonymize_ips' }})
-    app_urls: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('app_urls') }, 'form': { 'field_name': 'app_urls', 'json': True }, 'multipart_form': { 'field_name': 'app_urls', 'json': True }})
-    capture_console_log_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('capture_console_log_opt_in') }, 'form': { 'field_name': 'capture_console_log_opt_in' }, 'multipart_form': { 'field_name': 'capture_console_log_opt_in' }})
-    capture_performance_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('capture_performance_opt_in') }, 'form': { 'field_name': 'capture_performance_opt_in' }, 'multipart_form': { 'field_name': 'capture_performance_opt_in' }})
-    completed_snippet_onboarding: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('completed_snippet_onboarding') }, 'form': { 'field_name': 'completed_snippet_onboarding' }, 'multipart_form': { 'field_name': 'completed_snippet_onboarding' }})
-    correlation_config: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('correlation_config') }, 'form': { 'field_name': 'correlation_config', 'json': True }, 'multipart_form': { 'field_name': 'correlation_config', 'json': True }})
-    data_attributes: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('data_attributes') }, 'form': { 'field_name': 'data_attributes', 'json': True }, 'multipart_form': { 'field_name': 'data_attributes', 'json': True }})
-    inject_web_apps: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('inject_web_apps') }, 'form': { 'field_name': 'inject_web_apps' }, 'multipart_form': { 'field_name': 'inject_web_apps' }})
-    is_demo: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('is_demo') }, 'form': { 'field_name': 'is_demo' }, 'multipart_form': { 'field_name': 'is_demo' }})
-    live_events_columns: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('live_events_columns') }, 'form': { 'field_name': 'live_events_columns', 'json': True }, 'multipart_form': { 'field_name': 'live_events_columns', 'json': True }})
-    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('name') }, 'form': { 'field_name': 'name' }, 'multipart_form': { 'field_name': 'name' }})
-    path_cleaning_filters: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('path_cleaning_filters') }, 'form': { 'field_name': 'path_cleaning_filters', 'json': True }, 'multipart_form': { 'field_name': 'path_cleaning_filters', 'json': True }})
-    person_display_name_properties: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('person_display_name_properties') }, 'form': { 'field_name': 'person_display_name_properties', 'json': True }, 'multipart_form': { 'field_name': 'person_display_name_properties', 'json': True }})
-    primary_dashboard: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('primary_dashboard') }, 'form': { 'field_name': 'primary_dashboard' }, 'multipart_form': { 'field_name': 'primary_dashboard' }})
-    recording_domains: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('recording_domains') }, 'form': { 'field_name': 'recording_domains', 'json': True }, 'multipart_form': { 'field_name': 'recording_domains', 'json': True }})
-    session_recording_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('session_recording_opt_in') }, 'form': { 'field_name': 'session_recording_opt_in' }, 'multipart_form': { 'field_name': 'session_recording_opt_in' }})
-    slack_incoming_webhook: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('slack_incoming_webhook') }, 'form': { 'field_name': 'slack_incoming_webhook' }, 'multipart_form': { 'field_name': 'slack_incoming_webhook' }})
-    test_account_filters: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('test_account_filters') }, 'form': { 'field_name': 'test_account_filters', 'json': True }, 'multipart_form': { 'field_name': 'test_account_filters', 'json': True }})
-    test_account_filters_default_checked: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('test_account_filters_default_checked') }, 'form': { 'field_name': 'test_account_filters_default_checked' }, 'multipart_form': { 'field_name': 'test_account_filters_default_checked' }})
-    timezone: Optional[TeamTimezoneEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('timezone') }, 'form': { 'field_name': 'timezone' }, 'multipart_form': { 'field_name': 'timezone' }})
+    access_control: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_control'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'access_control' }, 'multipart_form': { 'field_name': 'access_control' }})
+    anonymize_ips: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('anonymize_ips'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'anonymize_ips' }, 'multipart_form': { 'field_name': 'anonymize_ips' }})
+    app_urls: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('app_urls'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'app_urls' }, 'multipart_form': { 'field_name': 'app_urls' }})
+    capture_console_log_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('capture_console_log_opt_in'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'capture_console_log_opt_in' }, 'multipart_form': { 'field_name': 'capture_console_log_opt_in' }})
+    capture_performance_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('capture_performance_opt_in'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'capture_performance_opt_in' }, 'multipart_form': { 'field_name': 'capture_performance_opt_in' }})
+    completed_snippet_onboarding: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('completed_snippet_onboarding'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'completed_snippet_onboarding' }, 'multipart_form': { 'field_name': 'completed_snippet_onboarding' }})
+    correlation_config: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('correlation_config'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'correlation_config', 'json': True }, 'multipart_form': { 'field_name': 'correlation_config', 'json': True }})
+    data_attributes: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('data_attributes'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'data_attributes', 'json': True }, 'multipart_form': { 'field_name': 'data_attributes', 'json': True }})
+    inject_web_apps: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('inject_web_apps'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'inject_web_apps' }, 'multipart_form': { 'field_name': 'inject_web_apps' }})
+    is_demo: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('is_demo'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'is_demo' }, 'multipart_form': { 'field_name': 'is_demo' }})
+    live_events_columns: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('live_events_columns'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'live_events_columns' }, 'multipart_form': { 'field_name': 'live_events_columns' }})
+    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('name'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'name' }, 'multipart_form': { 'field_name': 'name' }})
+    path_cleaning_filters: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('path_cleaning_filters'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'path_cleaning_filters', 'json': True }, 'multipart_form': { 'field_name': 'path_cleaning_filters', 'json': True }})
+    person_display_name_properties: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('person_display_name_properties'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'person_display_name_properties' }, 'multipart_form': { 'field_name': 'person_display_name_properties' }})
+    primary_dashboard: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('primary_dashboard'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'primary_dashboard' }, 'multipart_form': { 'field_name': 'primary_dashboard' }})
+    recording_domains: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('recording_domains'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'recording_domains' }, 'multipart_form': { 'field_name': 'recording_domains' }})
+    session_recording_opt_in: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('session_recording_opt_in'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'session_recording_opt_in' }, 'multipart_form': { 'field_name': 'session_recording_opt_in' }})
+    slack_incoming_webhook: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('slack_incoming_webhook'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'slack_incoming_webhook' }, 'multipart_form': { 'field_name': 'slack_incoming_webhook' }})
+    test_account_filters: Optional[dict[str, Any]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('test_account_filters'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'test_account_filters', 'json': True }, 'multipart_form': { 'field_name': 'test_account_filters', 'json': True }})
+    test_account_filters_default_checked: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('test_account_filters_default_checked'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'test_account_filters_default_checked' }, 'multipart_form': { 'field_name': 'test_account_filters_default_checked' }})
+    timezone: Optional[TeamTimezoneEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('timezone'), 'exclude': lambda f: f is None }, 'form': { 'field_name': 'timezone' }, 'multipart_form': { 'field_name': 'timezone' }})
     

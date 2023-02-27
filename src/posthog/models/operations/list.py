@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedteambasiclist as shared_paginatedteambasiclist
 from typing import Optional

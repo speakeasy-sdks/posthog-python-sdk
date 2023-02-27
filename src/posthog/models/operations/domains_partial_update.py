@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import organizationdomain as shared_organizationdomain
 from ..shared import patchedorganizationdomain as shared_patchedorganizationdomain

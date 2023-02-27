@@ -26,14 +26,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/funnel/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.FunnelsResponse(status_code=r.status_code, content_type=content_type)
@@ -54,14 +54,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/trend/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.TrendsResponse(status_code=r.status_code, content_type=content_type)
@@ -130,14 +130,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/cancel/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.InsightsCancelCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -158,14 +158,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.InsightsCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -209,14 +209,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/funnel/correlation/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.InsightsFunnelCorrelationCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -336,14 +336,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("PATCH", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("PATCH", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.InsightsPartialUpdateResponse(status_code=r.status_code, content_type=content_type)
@@ -364,14 +364,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/path/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.InsightsPathCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -464,14 +464,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/timing/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.InsightsTimingCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -516,14 +516,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("PUT", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("PUT", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.InsightsUpdateResponse(status_code=r.status_code, content_type=content_type)
@@ -544,14 +544,14 @@ class Insights:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/insights/{id}/viewed/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         query_params = utils.get_query_params(request.query_params)
         
         client = self._client
         
-        r = client.request("POST", url, params=query_params, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, params=query_params, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.InsightsViewedCreateResponse(status_code=r.status_code, content_type=content_type)

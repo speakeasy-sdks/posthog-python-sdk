@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import integration as shared_integration
 from typing import Optional

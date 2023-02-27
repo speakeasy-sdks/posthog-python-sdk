@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedinsightlist as shared_paginatedinsightlist
 from enum import Enum

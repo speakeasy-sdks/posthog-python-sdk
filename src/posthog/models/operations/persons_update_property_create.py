@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import person as shared_person
 from enum import Enum

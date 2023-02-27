@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedfeatureflaglist as shared_paginatedfeatureflaglist
 from typing import Optional

@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedfeatureflagroleaccesslist as shared_paginatedfeatureflagroleaccesslist
 from typing import Optional

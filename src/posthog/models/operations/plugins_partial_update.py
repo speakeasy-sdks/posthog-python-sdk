@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import patchedplugin as shared_patchedplugin
 from ..shared import plugin as shared_plugin

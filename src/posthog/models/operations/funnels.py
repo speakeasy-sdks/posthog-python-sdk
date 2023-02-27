@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import funnel as shared_funnel
 from ..shared import funnelstepsresults as shared_funnelstepsresults

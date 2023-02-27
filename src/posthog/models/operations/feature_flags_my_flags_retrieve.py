@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import featureflag as shared_featureflag
 from typing import Optional

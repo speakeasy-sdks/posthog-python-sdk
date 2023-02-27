@@ -1,5 +1,6 @@
+from __future__ import annotations
 import dataclasses
-from dataclasses_json import dataclass_json
+from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from posthog import utils
 from typing import Optional
@@ -446,7 +447,7 @@ class TeamBasicTimezoneEnum(str, Enum):
     UTC = "UTC"
 
 
-@dataclass_json
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class TeamBasic:
     r"""TeamBasic
@@ -457,11 +458,11 @@ class TeamBasic:
     id: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('id') }})
     organization: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('organization') }})
     uuid: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('uuid') }})
-    access_control: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_control') }})
-    api_token: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('api_token') }})
-    completed_snippet_onboarding: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('completed_snippet_onboarding') }})
-    ingested_event: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('ingested_event') }})
-    is_demo: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('is_demo') }})
-    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('name') }})
-    timezone: Optional[TeamBasicTimezoneEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('timezone') }})
+    access_control: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('access_control'), 'exclude': lambda f: f is None }})
+    api_token: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('api_token'), 'exclude': lambda f: f is None }})
+    completed_snippet_onboarding: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('completed_snippet_onboarding'), 'exclude': lambda f: f is None }})
+    ingested_event: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('ingested_event'), 'exclude': lambda f: f is None }})
+    is_demo: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('is_demo'), 'exclude': lambda f: f is None }})
+    name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('name'), 'exclude': lambda f: f is None }})
+    timezone: Optional[TeamBasicTimezoneEnum] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.field_name('timezone'), 'exclude': lambda f: f is None }})
     

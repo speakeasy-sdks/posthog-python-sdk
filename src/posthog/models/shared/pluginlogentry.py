@@ -1,6 +1,7 @@
+from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from dataclasses_json import dataclass_json
+from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from enum import Enum
 from marshmallow import fields
@@ -19,7 +20,7 @@ class PluginLogEntryTypeEnum(str, Enum):
     ERROR = "ERROR"
 
 
-@dataclass_json
+@dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class PluginLogEntry:
     id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.field_name('id') }})

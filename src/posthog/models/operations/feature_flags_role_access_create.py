@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import featureflagroleaccess as shared_featureflagroleaccess
 from typing import Optional

@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import paginatedactionlist as shared_paginatedactionlist
 from enum import Enum

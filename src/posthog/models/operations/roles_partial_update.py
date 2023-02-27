@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import patchedrole as shared_patchedrole
 from ..shared import role as shared_role

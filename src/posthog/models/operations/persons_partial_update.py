@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import patchedperson as shared_patchedperson
 from ..shared import person as shared_person

@@ -1,3 +1,4 @@
+from __future__ import annotations
 import dataclasses
 from ..shared import experiment as shared_experiment
 from ..shared import patchedexperiment as shared_patchedexperiment

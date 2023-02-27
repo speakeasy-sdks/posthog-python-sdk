@@ -26,15 +26,15 @@ class Subscriptions:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/subscriptions/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
-        if data is None and json is None:
+        if data is None and form is None:
            raise Exception('request body is required')
         
         client = self._client
         
-        r = client.request("POST", url, data=data, json=json, files=files, headers=headers)
+        r = client.request("POST", url, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.SubscriptionsCreateResponse(status_code=r.status_code, content_type=content_type)
@@ -97,13 +97,13 @@ class Subscriptions:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/subscriptions/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
         
         client = self._client
         
-        r = client.request("PATCH", url, data=data, json=json, files=files, headers=headers)
+        r = client.request("PATCH", url, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.SubscriptionsPartialUpdateResponse(status_code=r.status_code, content_type=content_type)
@@ -143,15 +143,15 @@ class Subscriptions:
         url = utils.generate_url(base_url, "/api/projects/{project_id}/subscriptions/{id}/", request.path_params)
         
         headers = {}
-        req_content_type, data, json, files = utils.serialize_request_body(request)
+        req_content_type, data, form = utils.serialize_request_body(request)
         if req_content_type != "multipart/form-data" and req_content_type != "multipart/mixed":
             headers["content-type"] = req_content_type
-        if data is None and json is None:
+        if data is None and form is None:
            raise Exception('request body is required')
         
         client = self._client
         
-        r = client.request("PUT", url, data=data, json=json, files=files, headers=headers)
+        r = client.request("PUT", url, data=data, files=form, headers=headers)
         content_type = r.headers.get("Content-Type")
 
         res = operations.SubscriptionsUpdateResponse(status_code=r.status_code, content_type=content_type)
